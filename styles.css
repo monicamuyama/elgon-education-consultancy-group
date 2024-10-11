@@ -30,6 +30,7 @@ header {
 nav ul {
     list-style: none;
     display: flex;
+    gap: 20px;
 }
 
 nav ul li {
@@ -39,7 +40,38 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-size: 18px
 }
+/* Hide the hamburger button on desktop */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  /* Make the nav menu mobile-friendly */
+@media (max-width: 768px) {
+    .nav {
+      display: none; /* Hidden by default on mobile */
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      text-align: center;
+      padding: 20px 0;
+    }
+    
+    .nav ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .hamburger {
+      display: block; /* Show the hamburger icon on smaller screens */
+    }
 
 .cta {
     padding: 10px 20px;
@@ -58,7 +90,9 @@ nav ul li a {
     color: #fff;
     text-align: center;
 }
-
+.nav.active {
+    display: block;
+}
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 20px;
@@ -82,8 +116,22 @@ nav ul li a {
     background-color: #f4f4f4;
     padding: 20px;
     border-radius: 10px;
-    width: 30%;
+    flex: 1 1 calc(33% - 20px);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+
 }
+/* Add responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .service-item {
+        flex: 1 1 calc(50% - 20px); /* On smaller screens, make it 2 items per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .service-item {
+        flex: 1 1 100%; /* On very small screens, make it 1 item per row */
+    }
 
 .case-studies .case-list, .testimonials .testimonial-item {
     text-align: center;
